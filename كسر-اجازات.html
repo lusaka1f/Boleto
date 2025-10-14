@@ -18,6 +18,10 @@
     position: relative;
     overflow: hidden;
   }
+body {
+  min-height: 100vh !important;
+  overflow-y: auto !important;
+}
 
   body::before {
   content: "";
@@ -56,6 +60,8 @@ body::after {
     width: 400px;
     position: relative;
     z-index: 1;
+    max-height: 90vh;
+  overflow-y: auto;
   }
 
   h2 {
@@ -172,3 +178,4 @@ function generateMessage() {
 
 </body>
 </html>
+
