@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نموذج كسر الإجازات والانتدابات</title>
+<link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1071934385084973087/1403232329157050530/snapedit_1754626983902.png?ex=68ef21f2&is=68edd072&hm=505b34764e77bfa0215709dba11a557dcfefd3a58812cd451c7f380f28981c7f&=&format=webp&quality=lossless&width=846&height=846">
+<style>
+  body {
+    background-color: #0b132b;
+    color: #fff;
+    font-family: "Cairo", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body::before {
+  content: "";
+  position: fixed;
+  top: 0%;
+  left: -4%;
+  width: 100%;
+  height: 100%;
+  background: url('https://cdn.discordapp.com/attachments/1071934385084973087/1403232329501114569/--.gif?ex=68ef21f2&is=68edd072&hm=fdf61b68c8cfaf299641a91289316f49258c0729266eb3d2df6b4c60d6700c39&') no-repeat;
+  background-size: 50%;
+  background-position: left top;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: -4%;
+  width: 100%;
+  height: 100%;
+  background: url('https://cdn.discordapp.com/attachments/1071934385084973087/1403767388603945111/final_3.gif?ex=68ef1a02&is=68edc882&hm=5e81feb70514eaed18a6f784b8e9969fa0392088ed9eb71ab7974029555c2083&') no-repeat;
+  background-size: 50%;
+  background-position: right top;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+
+  .container {
+    background: #1c2541;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    width: 400px;
+    position: relative;
+    z-index: 1;
+  }
+
+  h2 {
+    text-align: center;
+    color: #5bc0be;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+    background: #3a506b;
+    color: white;
+    text-align: center;
+  }
+
+  button {
+    margin-top: 20px;
+    width: 100%;
+    background: #5bc0be;
+    color: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #a1dfd5;
+  }
+
+  textarea {
+    width: 100%;
+    height: 230px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #3a506b;
+    color: white;
+    resize: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>نموذج كسر الإجازات والانتدابات</h2>
+
+  <label>ايدي العسكري:</label>
+  <input type="text" id="soldierId" placeholder="مثال : 760697571365617714">
+
+  <label>ايدي مصدر القرار:</label>
+  <input type="text" id="sourceId" placeholder="مثال : 806514221281706003">
+
+  <label>الموضوع:</label>
+<select id="subject">
+  <option value="إجازة خارجية">كسر إجازة خارجية</option>
+  <option value="إجازة داخلية">كسر إجازة داخلية</option>
+  <option value="ابتعاث">كسر ابتعاث</option>
+  <option value="انتداب">كسر انتداب</option>
+</select>
+
+
+  <label>رابط الإجازة:</label>
+  <input type="text" id="link" placeholder="أدخل رابط قرار الإجازة">
+
+  <button onclick="generateMessage()">📋 نسخ نموذج الكسر</button>
+
+  <textarea id="output" readonly></textarea>
+</div>
+
+<script>
+function formatDate(date) {
+  let y = date.getFullYear();
+  let m = (date.getMonth() + 1).toString().padStart(2, "0");
+  let d = date.getDate().toString().padStart(2, "0");
+  return `${y}/${m}/${d}`;
+}
+
+function generateMessage() {
+  const soldierId = document.getElementById("soldierId").value || "xxxxxx";
+  const sourceId = document.getElementById("sourceId").value || "xxxxxx";
+  const subject = document.getElementById("subject").value || "غير محدد";
+  const link = document.getElementById("link").value || "لا يوجد رابط";
+  const today = formatDate(new Date());
+
+  let msg = `**الاســم مــنــشــن : <@${soldierId}>**
+
+**مــصــدر الــقــرار مــنــشــن : <@${sourceId}>**
+
+**الــمــوضــوع : كــســر ${subject}**
+
+**قــرار الاجازة : ${link}**
+
+**تــاريــخ كــســر الإجازة : ${today}**
+
+|| <@&1071933319362654329> ||`;
+
+  document.getElementById("output").value = msg;
+  navigator.clipboard.writeText(msg);
+  alert("✅ تم نسخ نموذج الكسر بنجاح!");
+}
+</script>
+
+</body>
+</html>
