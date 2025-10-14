@@ -32,6 +32,11 @@
   opacity: 0.08;
   z-index: 0;
 }
+  body {
+  min-height: 100vh !important;
+  overflow-y: auto !important;
+}
+
 
 body::after {
   content: "";
@@ -56,6 +61,8 @@ body::after {
     width: 380px;
     position: relative;
     z-index: 1;
+    max-height: 90vh;
+  overflow-y: auto;
   }
 
   h2 {
@@ -197,3 +204,4 @@ function generateAdminModel() {
 
 </body>
 </html>
+
