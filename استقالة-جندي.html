@@ -161,7 +161,8 @@ function formatDate(date) {
   return `${y}/${m}/${d}`;
 }
 
-function generateMessage(targetRole) {
+// ✅ نموذج روم المواضيع (زي ما هو)
+function generateAdminModel() {
   const id = document.getElementById("soldierId").value || "xxxxxx";
   const name = document.getElementById("soldierName").value || "الاسم غير محدد";
   const code = document.getElementById("soldierCode").value || "000";
@@ -186,22 +187,49 @@ function generateMessage(targetRole) {
 
 **تاريخ الاستقالة : ${today}**
 
-ترسل نسخة لـ : || ${targetRole} ||`;
+ترسل نسخة لـ : || <@&1071933319362654329> ||`;
 
   document.getElementById("output").value = msg;
   navigator.clipboard.writeText(msg);
-  alert("✅ تم نسخ النموذج بنجاح!");
+  alert("✅ تم نسخ نموذج روم مواضيع الشؤون بنجاح!");
 }
 
+// ✅ نموذج روم المشترك (بصيغة مختلفة)
 function generateCommonModel() {
-  generateMessage("<@&1071933313259937872>"); // الشرطة العسكرية
-}
+  const id = document.getElementById("soldierId").value || "xxxxxx";
+  const name = document.getElementById("soldierName").value || "الاسم غير محدد";
+  const code = document.getElementById("soldierCode").value || "000";
+  const rank = document.getElementById("rank").value;
+  const reason = document.getElementById("reason").value || "غير محدد";
+  const rankMention = getRankMention(rank);
+  const today = formatDate(new Date());
 
-function generateAdminModel() {
-  generateMessage("<@&1071933319362654329>"); // الشؤون الإدارية
+  let msg = `**الموضوع : استقالة برتبة : ${rankMention}**
+
+**الاسم منشن :** <@${id}>
+
+**الاسم بدون منشن: [P-${code}] ${name}**
+
+**سبب الاستقالة : ${reason}**
+
+**مستحق منع : ✅**
+
+**العهدة : ⏳ **
+
+**الغرامات : مليون الفصل⏳ **
+
+**تاريخ الاستقالة : ${today}**
+
+ترسل نسخة لـ : || <@&1071933313259937872> ||`;
+
+  document.getElementById("output").value = msg;
+  navigator.clipboard.writeText(msg);
+  alert("✅ تم نسخ نموذج روم المشترك بنجاح!");
 }
 </script>
 
+
 </body>
 </html>
+
 
