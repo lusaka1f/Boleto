@@ -23,7 +23,6 @@
   overflow-y: auto !important;
 }
 
-
   body::before {
   content: "";
   position: fixed;
@@ -52,7 +51,6 @@ body::after {
   z-index: 0;
 }
 
-
   .container {
     background: #1c2541;
     padding: 40px;
@@ -62,7 +60,7 @@ body::after {
     position: relative;
     z-index: 1;
     max-height: 90vh;
-  overflow-y: auto;
+    overflow-y: auto;
   }
 
   h2 {
@@ -182,6 +180,15 @@ function formatDate(date) {
   return `${y}/${m}/${d}`;
 }
 
+// ✅ نحسب الوقت حسب توقيت السعودية (UTC+3)
+function getSaudiTime() {
+  let nowUTC = new Date();
+  let saudiOffset = 3 * 60; // فرق التوقيت بالدقايق
+  let localOffset = nowUTC.getTimezoneOffset();
+  let diff = saudiOffset + localOffset;
+  return new Date(nowUTC.getTime() + diff * 60 * 1000);
+}
+
 function pluralizeDays(d) {
   if (d === 1) return "يوم واحد";
   if (d === 2) return "يومين";
@@ -208,7 +215,7 @@ function generateMessage() {
   const sector = document.getElementById("sector").value;
   const sectorMention = getSectorMention(sector);
 
-  let now = new Date();
+  let now = getSaudiTime();
   now = roundToNext5(now);
   let end = new Date(now.getTime() + duration * 24 * 60 * 60 * 1000);
   end = roundToNext5(end);
@@ -276,7 +283,7 @@ function generateRoomModel() {
   const sector = document.getElementById("sector").value;
   const sectorMention = getSectorMention(sector);
 
-  let now = new Date();
+  let now = getSaudiTime();
   now = roundToNext5(now);
   let end = new Date(now.getTime() + duration * 24 * 60 * 60 * 1000);
   end = roundToNext5(end);
@@ -301,6 +308,3 @@ function generateRoomModel() {
 
 </body>
 </html>
-
-
-
