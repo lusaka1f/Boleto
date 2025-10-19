@@ -180,10 +180,10 @@ function formatDate(date) {
   return `${y}/${m}/${d}`;
 }
 
-// ✅ نحسب الوقت حسب توقيت السعودية (UTC+3)
+
 function getSaudiTime() {
   let nowUTC = new Date();
-  let saudiOffset = 3 * 60; // فرق التوقيت بالدقايق
+  let saudiOffset = 3 * 60;
   let localOffset = nowUTC.getTimezoneOffset();
   let diff = saudiOffset + localOffset;
   return new Date(nowUTC.getTime() + diff * 60 * 1000);
@@ -308,3 +308,4 @@ function generateRoomModel() {
 
 </body>
 </html>
+
