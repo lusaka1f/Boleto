@@ -148,6 +148,12 @@ body::after {
 </div>
 
 <script>
+function getSaudiDate() {
+  const now = new Date();
+  const saTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Riyadh" }));
+  return saTime;
+}
+
 function roundToNext5(date) {
   let minutes = date.getMinutes();
   let rounded = Math.ceil(minutes / 5) * 5;
@@ -204,7 +210,8 @@ function generateMessage() {
   const id = document.getElementById("soldierId").value || "xxxxxx";
   const duration = parseInt(document.getElementById("duration").value) || 0;
 
-  let now = new Date();
+
+  let now = getSaudiDate();
   now = roundToNext5(now);
   let end = new Date(now.getTime() + duration * 60 * 60 * 1000);
   end = roundToNext5(end);
@@ -269,7 +276,8 @@ function generateRoomModel() {
   const sector = document.getElementById("sector").value;
   const leaveNum = document.getElementById("leaveNumber").value;
 
-  let now = new Date();
+
+  let now = getSaudiDate();
   now = roundToNext5(now);
   let end = new Date(now.getTime() + duration * 60 * 60 * 1000);
   end = roundToNext5(end);
@@ -292,4 +300,3 @@ function generateRoomModel() {
 
 </body>
 </html>
-
