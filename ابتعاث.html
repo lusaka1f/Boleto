@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ابتعاث</title>
+<title>إبتعاث</title>
 <link rel="icon" type="image/png" href="https://i.postimg.cc/28B0910P/snapedit-1754626983902.png">
 <style>
   body {
@@ -126,12 +126,12 @@
 <body>
 
 <div class="container">
-  <h2>نموذج ابتعاث</h2>
+  <h2>نموذج إبتعاث</h2>
   
   <label>رقم الصادر:</label>
   <input type="text" id="issueNumber" placeholder="أدخل رقم الصادر">
 
-  <label>رقم الابتعاث:</label>
+  <label>رقم الإبتعاث:</label>
   <select id="assignmentNumber">
     <script>
       for (let i = 1; i <= 10; i++) {
@@ -225,14 +225,14 @@ function generateMessage() {
 
 **قـرار صـادر من مـكتب الشـؤون الإداريـة رقـم (${issue}) :**
 
-**ينـص علـى قبول ابتعاث العسـكري المحتـرم :**
+**ينـص علـى قبول إبتعاث العسـكري المحتـرم :**
 
 <@${id}>
 
-**ابـتـعـاث إلى :** ${sectorMention}
+**إبتـعـاث إلى :** ${sectorMention}
 
 \`\`\`
-ابتعاث
+إبتعاث
 
 المدة : ${pluralizeDays(duration)} 
 
@@ -263,7 +263,7 @@ function generateMessage() {
 
 <@801559249805115413> 
 
-**اعـتـماد ✍🏻 :**
+**إعتـماد ✍🏻 :**
 
 <@&1071933293865480192> 
 
@@ -275,7 +275,7 @@ function generateMessage() {
 
   document.getElementById("output").value = msg;
   navigator.clipboard.writeText(msg);
-  alert("✅ تم نسخ برقية الابتعاث بنجاح!");
+  alert("✅ تم نسخ برقية الإبتعاث بنجاح!");
 }
 
 function generateRoomModel() {
@@ -290,7 +290,7 @@ function generateRoomModel() {
   let end = new Date(now.getTime() + duration * 24 * 60 * 60 * 1000);
   end = roundToNext5(end);
 
-  let msg = `**ابتعاث ${assign} | <@${id}> **
+  let msg = `**إبتعاث ${assign} | <@${id}> **
 
 **القطاع : ${sectorMention} **  
 
@@ -304,12 +304,13 @@ function generateRoomModel() {
 
   document.getElementById("output").value = msg;
   navigator.clipboard.writeText(msg);
-  alert("📋 تم نسخ نموذج روم الابتعاثات بنجاح!");
+  alert("📋 تم نسخ نموذج روم الإبتعاثات بنجاح!");
 }
 </script>
 
 </body>
 </html>
+
 
 
 
