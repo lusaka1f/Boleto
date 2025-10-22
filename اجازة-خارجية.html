@@ -150,7 +150,7 @@
 function getSaudiTime() {
   const now = new Date();
   const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-  return new Date(utc + (3 * 60 * 60 * 1000)); // السعودية UTC+3
+  return new Date(utc + (3 * 60 * 60 * 1000)); 
 }
 
 function formatDate(date) {
@@ -179,11 +179,11 @@ function generateMessage() {
 
 **قـرار صـادر من مـكتب الشـؤون الإداريـة رقـم ( ${issue} ) :**
 
-**ينـص علـى قبول اجازة العسـكري المحتـرم**:
+**ينـص علـى قبول إجازة العسـكري المحتـرم**:
 
 <@${id}> 
 
-\`\`\`اجازه خارجيه
+\`\`\`إجازه خارجيه
 
 المدة  : ${pluralizeDays(duration)} 
 
@@ -210,7 +210,7 @@ function generateMessage() {
 
 <@801559249805115413>
 
-**اعـتـماد** ✍🏻 :  
+**إعـتـماد** ✍🏻 :  
 
 <@&1071933293865480192>  
 
@@ -222,13 +222,13 @@ function generateMessage() {
   
   document.getElementById("output").value = msg;
   navigator.clipboard.writeText(msg);
-  alert("✅ تم نسخ برقية الإجازة الخارجية بالتوقيت السعودي بنجاح!");
+  alert("✅ تم نسخ برقية الإجازة الخارجية بنجاح!");
 }
 
 function generateRoleModel() {
   const id = document.getElementById("soldierId").value || "xxxxxx";
 
-  let msg = `**الموضوع : اعطاء رول**
+  let msg = `**الموضوع : إعطاء رول**
 
 **الاسم منشن :** <@${id}>  
 
@@ -244,6 +244,7 @@ function generateRoleModel() {
 
 </body>
 </html>
+
 
 
 
