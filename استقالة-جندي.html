@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>استقالة (جندي - جندي أول)</title>
+<title>إستقالة (جندي - جندي أول)</title>
 <link rel="icon" type="image/png" href="https://i.postimg.cc/28B0910P/snapedit-1754626983902.png">
 <style>
   body {
@@ -130,7 +130,7 @@ body::after {
 <body>
 
 <div class="container">
-  <h2>استقالة (جندي - جندي أول)</h2>
+  <h2>إستقالة (جندي - جندي أول)</h2>
 
   <label>الرتبة:</label>
   <select id="rank">
@@ -172,7 +172,6 @@ function formatDate(date) {
   return `${y}/${m}/${d}`;
 }
 
-// ✅ نموذج روم المواضيع (زي ما هو)
 function generateAdminModel() {
   const id = document.getElementById("soldierId").value || "xxxxxx";
   const name = document.getElementById("soldierName").value || "الاسم غير محدد";
@@ -182,13 +181,13 @@ function generateAdminModel() {
   const rankMention = getRankMention(rank);
   const today = formatDate(new Date());
 
-  let msg = `**الموضوع : استقالة برتبة : ${rankMention}**
+  let msg = `**الموضوع : إستقالة برتبة : ${rankMention}**
 
 **الاسم منشن :** <@${id}>
 
 **الاسم بدون منشن: [P-${code}] ${name}**
 
-**سبب الاستقالة : ${reason}**
+**سبب الإستقالة : ${reason}**
 
 **مستحق منع : ✅**
 
@@ -196,7 +195,7 @@ function generateAdminModel() {
 
 **الغرامات : ✅**
 
-**تاريخ الاستقالة : ${today}**
+**تاريخ الإستقالة : ${today}**
 
 ترسل نسخة لـ : || <@&1071933319362654329> ||`;
 
@@ -204,8 +203,7 @@ function generateAdminModel() {
   navigator.clipboard.writeText(msg);
   alert("✅ تم نسخ نموذج روم مواضيع الشؤون بنجاح!");
 }
-
-// ✅ نموذج روم المشترك (بصيغة مختلفة)
+  
 function generateCommonModel() {
   const id = document.getElementById("soldierId").value || "xxxxxx";
   const name = document.getElementById("soldierName").value || "الاسم غير محدد";
@@ -221,7 +219,7 @@ function generateCommonModel() {
 
 **الاسم بدون منشن: [P-${code}] ${name}**
 
-**سبب الاستقالة : ${reason}**
+**سبب الإستقالة : ${reason}**
 
 **مستحق منع : ✅**
 
@@ -229,7 +227,7 @@ function generateCommonModel() {
 
 **الغرامات : مليون الفصل⏳ **
 
-**تاريخ الاستقالة : ${today}**
+**تاريخ الإستقالة : ${today}**
 
 ترسل نسخة لـ : || <@&1071933313259937872> ||`;
 
@@ -242,6 +240,7 @@ function generateCommonModel() {
 
 </body>
 </html>
+
 
 
 
