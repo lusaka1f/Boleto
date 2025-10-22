@@ -160,7 +160,6 @@
 
 <script>
 function getSaudiTime() {
-  // تحويل الوقت الحالي لتوقيت السعودية (UTC+3)
   let now = new Date();
   let utc = now.getTime() + now.getTimezoneOffset() * 60000;
   return new Date(utc + 3 * 3600000);
@@ -310,6 +309,7 @@ function generateRoomModel() {
 
 </body>
 </html>
+
 
 
 
