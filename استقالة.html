@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>استقالة</title>
+<title>إستقالة</title>
 <link rel="icon" type="image/png" href="https://i.postimg.cc/28B0910P/snapedit-1754626983902.png">
 <style>
   body {
@@ -130,7 +130,7 @@ body::after {
 <body>
 
 <div class="container">
-  <h2>نموذج استقالة</h2>
+  <h2>نموذج إستقالة</h2>
   
   <label>رقم الصادر:</label>
   <input type="text" id="issueNumber" placeholder="أدخل رقم الصادر">
@@ -160,10 +160,10 @@ body::after {
   <label>كود العسكري:</label>
   <input type="text" id="soldierCode" placeholder="مثال : 136">
 
-  <label>سبب الاستقالة:</label>
+  <label>سبب الإستقالة:</label>
   <input type="text" id="reason" placeholder="مثال : دراسة">
 
-  <button onclick="generateResignation()">نسخ برقية الاستقالة</button>
+  <button onclick="generateResignation()">نسخ برقية الإستقالة</button>
   <button onclick="generateRoomModel()">نسخ نموذج روم المواضيع</button>
 
   <textarea id="output" readonly></textarea>
@@ -207,7 +207,7 @@ function generateResignation() {
 
 **قـرار صـادر من مـكتب الشـؤون الإداريـة رقـم ( ${issue} ) : **
 
-**ينـص علـى قبول استقالة العسـكري المحتـرم برتبة**
+**ينـص علـى قبول إستقالة العسـكري المحتـرم برتبة**
 
 ${rankMention}
 
@@ -233,7 +233,7 @@ ${rankMention}
 
 <@801559249805115413> 
 
-**اعـتـماد** ✍🏻 : 
+**إعـتـماد** ✍🏻 : 
 
 <@&1071933293865480192> 
 
@@ -245,7 +245,7 @@ ${rankMention}
 
   document.getElementById("output").value = msg;
   navigator.clipboard.writeText(msg);
-  alert("✅ تم نسخ برقية الاستقالة بنجاح!");
+  alert("✅ تم نسخ برقية الإستقالة بنجاح!");
 }
 
 function generateRoomModel() {
@@ -257,13 +257,13 @@ function generateRoomModel() {
   const rankMention = getRankMention(rank);
   const today = formatDate(new Date());
 
-  let msg = `**الموضوع : استقالة برتبة : ${rankMention}**
+  let msg = `**الموضوع : إستقالة برتبة : ${rankMention}**
 
 **الاسم منشن : <@${id}> **
 
 **الاسم بدون منشن: [P-${code}] ${name}**
 
-**سبب الاستقالة : ${reason}**
+**سبب الإستقالة : ${reason}**
 
 **مستحق منع : ❌**
 
@@ -283,6 +283,7 @@ function generateRoomModel() {
 
 </body>
 </html>
+
 
 
 
