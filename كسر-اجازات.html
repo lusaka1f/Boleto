@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نموذج كسر الإجازات والانتدابات</title>
+<title>نموذج كسر الإجازات والإنتدابات</title>
 <link rel="icon" type="image/png" href="https://i.postimg.cc/28B0910P/snapedit-1754626983902.png">
 <style>
   body {
@@ -129,7 +129,7 @@ body::after {
 <body>
 
 <div class="container">
-  <h2>نموذج كسر الإجازات والانتدابات</h2>
+  <h2>نموذج كسر الإجازات والإنتدابات</h2>
 
   <label>ايدي العسكري:</label>
   <input type="text" id="soldierId" placeholder="مثال : 760697571365617714">
@@ -139,15 +139,15 @@ body::after {
 
   <label>الموضوع:</label>
 <select id="subject">
-  <option value="إجازة خارجية">كسر إجازة خارجية</option>
-  <option value="إجازة داخلية">كسر إجازة داخلية</option>
-  <option value="ابتعاث">كسر ابتعاث</option>
-  <option value="انتداب">كسر انتداب</option>
+  <option value=" كسر إجازة خارجية">كسر إجازة خارجية</option>
+  <option value="كسر إجازة داخلية">كسر إجازة داخلية</option>
+  <option value="كسر إبتعاث">كسر إبتعاث</option>
+  <option value="كسر إنتداب">كسر إنتداب</option>
 </select>
 
 
-  <label>رابط الإجازة:</label>
-  <input type="text" id="link" placeholder="أدخل رابط قرار الإجازة">
+  <label>رابط القرار:</label>
+  <input type="text" id="link" placeholder="أدخل رابط القرار">
 
   <button onclick="generateMessage()">📋 نسخ نموذج الكسر</button>
 
@@ -169,27 +169,29 @@ function generateMessage() {
   const link = document.getElementById("link").value || "لا يوجد رابط";
   const today = formatDate(new Date());
 
+  let typeWord = "";
+  if (subject.includes("إجازة")) typeWord = "الإجازة";
+  else if (subject.includes("إنتداب")) typeWord = "الإنتداب";
+  else if (subject.includes("إبتعاث")) typeWord = "الإبتعاث";
+  else typeWord = "القرار";
+
   let msg = `**الاســم مــنــشــن : <@${soldierId}>**
 
 **مــصــدر الــقــرار مــنــشــن : <@${sourceId}>**
 
-**الــمــوضــوع : كــســر ${subject}**
+**الــمــوضــوع : ${subject}**
 
-**قــرار الاجازة : ${link}**
+**قــرار ${typeWord} : ${link}**
 
-**تــاريــخ كــســر الإجازة : ${today}**
+**تــاريــخ كــســر ${typeWord} : ${today}**
 
 || <@&1071933319362654329> ||`;
 
   document.getElementById("output").value = msg;
   navigator.clipboard.writeText(msg);
-  alert("✅ تم نسخ نموذج الكسر بنجاح!");
+  alert("✅ تم نسخ نموذج روم كسر الإجازات والإنتدابات بنجاح!");
 }
 </script>
 
 </body>
 </html>
-
-
-
-
